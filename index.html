@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appmodule">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AngularJs</title>
+    <style type="text/css">
+      body{
+          background-color:{{property}};
+          color:{{select}};
+      },
+      p{
+        font-size:{{property}};
+        padding:{{property}};
+        margin:{{property}};
+      }
+    </style>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/module.js"></script>
+  </head>
+  <body>
+    Enter Any Text :
+    <input type="text" ng-model="number" /><br />
+    this is your input [using interpollation]: {{number}} <br />
+    this is your input [using ng-bind]: <span ng-bind="number"></span> <br />
+    Enter Color : <input type="text" ng-model="property" /><br />
+    <p>Example text</p>
+
+    <br />
+    select Font color
+    <select ng-model="select">
+      <option>red</option>
+      <option>blue</option>
+      <option>skyblue</option>
+      <option>green</option>
+    </select>
+    <div ng-init="name='Jaydip Gohil';age=25;city='Surat'">
+      {{name}} - {{age}} - {{city}}
+    </div>
+  </body>
+</html>
