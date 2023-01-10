@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AngularJs</title>
     <style type="text/css">
-      body{
+      /* body{
           background-color:{{property}};
           color:{{select}};
       },
@@ -14,30 +14,95 @@
         font-size:{{property}};
         padding:{{property}};
         margin:{{property}};
-      }
+      } */
     </style>
+    <!-- using Link  -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> -->
-    <script src="js/angular.min.js"></script>
-    <script src="js/module.js"></script>
+    <script src="./assets/plugins/angular/angular.min.js"></script>
+    <script src="app.js"></script>
   </head>
   <body>
-    Enter Any Text :
-    <input type="text" ng-model="number" /><br />
-    this is your input [using interpollation]: {{number}} <br />
-    this is your input [using ng-bind]: <span ng-bind="number"></span> <br />
-    Enter Color : <input type="text" ng-model="property" /><br />
-    <p>Example text</p>
+    <div ng-hide="true">
+        Enter Any Text :
+        <input type="text" ng-model="number" /><br />
+        this is your input [using interpollation]: {{number}} <br />
+        this is your input [using ng-bind]: <span ng-bind="number"></span> <br />
+        Enter Color : <input type="text" ng-model="property" /><br />
+        <p>Example text</p>
 
-    <br />
-    select Font color
-    <select ng-model="select">
-      <option>red</option>
-      <option>blue</option>
-      <option>skyblue</option>
-      <option>green</option>
-    </select>
-    <div ng-init="name='Jaydip Gohil';age=25;city='Surat'">
-      {{name}} - {{age}} - {{city}}
+        <br />
+        select Font color
+        <select ng-model="select">
+          <option>red</option>
+          <option>blue</option>
+          <option>skyblue</option>
+          <option>green</option>
+        </select>
+        <div ng-init="name='Jaydip Gohil';age=25;city='Surat'">
+          {{name}} - {{age}} - {{city}}
+        </div>
+        <h2>Array practise</h2>
+        <div ng-init="details=['jaydip','age','surat']">
+          <p ng-repeat="s in details">{{s}}</p>
+        </div>
+  </div>
+    <div ng-controller="app-controller" ng-hide="true">
+      <h2>simple app-controller</h2>
+      <input type="text" ng-model="name2" />
+      <input type="text" ng-model="city2" />
+      <h2>function</h2>
+      <p>{{details()}}</p>
+      <p>{{maths()}}</p>
+
+      <div>
+        <h3>array</h3>
+        <ol>
+          <li ng-repeat="s in city3">{{s}}</li>
+        </ol>
+        <h3>Json</h3>
+        <ol>
+          <li ng-repeat="s in cityJson">
+            {{"Name :" + s.name + " City : "+ s.city}}
+          </li>
+        </ol>
+
+        <custom-direactive></custom-direactive>
+        <h2>drop down from select directive</h2>
+        <select-city></select-city>
+        <select-city></select-city>
+
+        <h2>Filter</h2>
+        <input type="text" ng-model="filter2" />
+        <br />
+        <p>simple : <b>{{filter2}} </b></p>
+        <p>loawercase :<b> {{filter2 | lowercase}}</b></p>
+        <p>uppercase : <b>{{filter2 | uppercase }}</b></p>
+        <p>Money : <b>{{filter2 | currency }}</b></p>
+        <p>Indian Money : <b>{{filter2 | currency : "Rs. " :4 }}</b></p>
+        <p>
+          <ol>
+          <li ng-repeat="color in colors | orderBy : color" >{{color}} </li>
+        </ol>
+        <h2>search </h2>
+        <input type="text" ng-model="serch" id="">
+        <ol>
+          <li ng-repeat="color in colors | filter : serch ">{{color}} </li>
+        </ol>
+        </p>
+        <div>
+          <h2>Url : {{url}} </h2>
+          <h2>protocol : {{protocol}} </h2>
+          <h2>host : {{host}} </h2>
+          <h2>port : {{port}} </h2>
+        </div>
+        <div>
+          <h2>click event</h2>
+          <hr>
+         <h2> Message : {{message}}</h2>
+          <button ng-click="click()"> Click</button>
+        </div>
+        <hr>
+      </div>
     </div>
   </body>
 </html>
