@@ -7,21 +7,22 @@
     <title>AngularJs</title>
     <style type="text/css">
       /* body{
-          background-color:{{property}};
-          color:{{select}};
+        background-color:{{property}};
+        color:{{select}};
       },
       p{
         font-size:{{property}};
         padding:{{property}};
         margin:{{property}};
       } */
-    </style>
+      </style>
     <!-- using Link  -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> -->
     <script src="./assets/plugins/angular/angular.min.js"></script>
     <script src="app.js"></script>
   </head>
   <body>
+    <div  [ng-include]="'D:\jaydip\angularJs\app\view\second.html'"></div>
     <div ng-hide="true">
         Enter Any Text :
         <input type="text" ng-model="number" /><br />
@@ -84,9 +85,9 @@
           <li ng-repeat="color in colors | orderBy : color" >{{color}} </li>
         </ol>
         <h2>search </h2>
-        <input type="text" ng-model="serch" id="">
+        <input type="text" ng-model="search" id="">
         <ol>
-          <li ng-repeat="color in colors | filter : serch ">{{color}} </li>
+          <li ng-repeat="color in colors | filter : search ">{{color}} </li>
         </ol>
         </p>
         <div>
